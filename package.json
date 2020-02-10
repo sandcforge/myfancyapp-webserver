@@ -19,7 +19,7 @@
     "lint:js": "npm run lint:eslint -- . ",
     "dev": "cross-env NODE_ENV=development node server",
     "start": "cross-env NODE_ENV=production node server",
-    "start:production": "npm run test && npm run build && npm run start:prod",
+    "start:production": "npm run test && npm run build && npm start",
     "pretest": "npm run test:clean && npm run lint",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:clean": "rimraf ./coverage",
