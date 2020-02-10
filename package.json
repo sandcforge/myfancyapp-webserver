@@ -18,13 +18,13 @@
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:js": "npm run lint:eslint -- . ",
     "dev": "cross-env NODE_ENV=development node server",
+    "prod": "npm run test && npm run build && npm start",
     "start": "cross-env NODE_ENV=production node server",
-    "start:production": "npm run test && npm run build && npm start",
     "pretest": "npm run test:clean && npm run lint",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:clean": "rimraf ./coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "zip": "npm run build && rm -f deploy.zip && zip -r deploy.zip  server build package.json"
+    "zip": "npm run build && rm -f deploy.zip && zip -r deploy.zip server build package.json"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
