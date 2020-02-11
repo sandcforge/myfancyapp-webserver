@@ -1,13 +1,13 @@
 {
-  "name": "react-redux-boilerplate",
-  "version": "1.0.0",
-  "description": "A minimal react-redux boilerplate with all the best practices",
+  "name": "myfancyapp-webserver",
+  "version": "0.0.1",
+  "description": "An app site builder",
   "repository": {
     "type": "git",
-    "url": "git://github.com/flexdinesh/react-redux-boilerplate.git"
+    "url": "git://github.com/sandcforge/myfancyapp-webserver.git"
   },
   "license": "MIT",
-  "author": "Dinesh Pandiyan",
+  "author": "sandcforge",
   "scripts": {
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
@@ -24,7 +24,7 @@
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:clean": "rimraf ./coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "zip": "npm run build && rm -f deploy.zip && zip -r deploy.zip server build package.json"
+    "zip": "npm run build && rimraf ./deploy.zip && zip -r deploy.zip server build package.json"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
@@ -38,7 +38,7 @@
     "hoist-non-react-statics": "3.3.0",
     "invariant": "2.2.4",
     "ip": "1.1.5",
-    "lodash": "4.17.11",
+    "lodash": "4.17.15",
     "minimist": "1.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
