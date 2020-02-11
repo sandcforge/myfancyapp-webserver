@@ -4,6 +4,9 @@
 const request = require('supertest');
 const app = require('../index.js');
 
+// Fake timer to run async tests.
+jest.useFakeTimers();
+
 describe('Test the /api/now endpoint', () => {
   test('It should response the GET method', async () => {
     const response = await request(app).get('/api/now');

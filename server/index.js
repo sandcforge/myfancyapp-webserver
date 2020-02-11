@@ -26,12 +26,16 @@ const customHost = argv.host || process.env.HOST;
 const host = customHost || null; // Let http.Server use its default IPv6/4 host
 const prettyHost = customHost || 'localhost';
 
-// Start your app.
-app.listen(port, host, (err) => {
-  if (err) {
-    return logger.error(err.message);
-  }
-  logger.appStarted(port, prettyHost);
-});
+// Start your app if prod/dev environments.
+const isTest = process.env.NODE_ENV === 'test';
+if (!isTest) {
+  app.listen(port, host, (err) => {
+    if (err) {
+      return logger.error(err.message);
+    }
+    logger.appStarted(port, prettyHost);
+  });
+}
 
+// Export 'app' for testing.
 module.exports = app;
