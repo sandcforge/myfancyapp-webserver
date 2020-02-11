@@ -30,5 +30,5 @@ module.exports = {
       '<rootDir>/config/jest-mocks/image.js',
   },
   setupFilesAfterEnv: ['<rootDir>/config/test-setup.js'],
-  testRegex: 'tests/.*\\.test\\.js$',
+  testRegex: '/.*\\.test\\.js$',
 };
