@@ -8,3 +8,11 @@ module.exports.serverConfig = {
   isTestEnv: env === 'test',
   isProdEnv: env === 'production',
 };
+
+module.exports.dbConfig = {
+  host: 'test-database.cjn9z9zzyyxs.us-east-1.rds.amazonaws.com',
+  user: 'myfancyapp',
+  password: 'myfancyapp',
+  database: 'myfancyapp',
+  port: 3306,
+};

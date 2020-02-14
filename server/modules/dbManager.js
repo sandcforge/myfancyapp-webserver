@@ -1,12 +1,7 @@
 const mysql = require('mysql');
+const { dbConfig } = require('../utils/constants');
 
-const dbConnection = mysql.createConnection({
-  host: 'test-database.cjn9z9zzyyxs.us-east-1.rds.amazonaws.com',
-  user: 'myfancyapp',
-  password: 'myfancyapp',
-  database: 'myfancyapp',
-  port: 3306,
-});
+const dbConnection = mysql.createConnection(dbConfig);
 
 const dbQuery = (sql) => new Promise((resolve, reject) => {
   dbConnection.query(sql, (err, results, fields) => {
