@@ -1,8 +1,9 @@
 const dbManager = require('../modules/dbManager');
+const {serverConfig} = require('../utils/constants');
 
 module.exports = function addApiMiddlewares(app) {
   app.get('/api/now', (req, res) => {
-    res.json({ now: Date.now() });
+    res.json({ now: Date.now(), appName: serverConfig.appName });
   });
 
   app.get('/api/test/db', async (req, res) => {
