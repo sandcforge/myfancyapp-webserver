@@ -4,8 +4,7 @@ const express = require('express');
 const { resolve } = require('path');
 const logger = require('./utils/logger');
 
-const argv = require('./utils/argv');
-const port = require('./utils/port');
+const { serverConfig } = require('./utils/constants');
 const setup = require('./middlewares/frontendMiddleware');
 const addApiMiddlewares = require('./middlewares/addApiMiddlewares');
 
@@ -21,19 +20,13 @@ setup(app, {
   publicPath: '/',
 });
 
-// get the intended host and port number, use localhost and port 3000 if not provided
-const customHost = argv.host || process.env.HOST;
-const host = customHost || null; // Let http.Server use its default IPv6/4 host
-const prettyHost = customHost || 'localhost';
-
 // Start your app if prod/dev environments.
-const isTest = process.env.NODE_ENV === 'test';
-if (!isTest) {
-  app.listen(port, host, (err) => {
+if (!serverConfig.isTestEnv) {
+  app.listen(serverConfig.port, (err) => {
     if (err) {
       return logger.error(err.message);
     }
-    logger.appStarted(port, prettyHost);
+    logger.appStarted(serverConfig.port);
   });
 }
 

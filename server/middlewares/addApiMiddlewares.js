@@ -1,5 +1,5 @@
 const dbManager = require('../modules/dbManager');
-const {serverConfig} = require('../utils/constants');
+const { serverConfig } = require('../utils/constants');
 
 module.exports = function addApiMiddlewares(app) {
   app.get('/api/now', (req, res) => {
