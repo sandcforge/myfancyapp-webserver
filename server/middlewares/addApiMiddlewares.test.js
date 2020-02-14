@@ -20,7 +20,6 @@ describe('Test the /api/now endpoint', () => {
 describe('Test the /api/test/db endpoint', () => {
   test('It should response the GET method', async () => {
     const response = await request(app).get('/api/test/db');
-    console.log(response.body);
-    expect(response.body).toEqual({id:2});
+    expect(response.body).toEqual({ id: 2 });
   });
 });

@@ -2,10 +2,10 @@
 
 const express = require('express');
 const { resolve } = require('path');
-const logger = require('./util//logger');
+const logger = require('./utils/logger');
 
-const argv = require('./util/argv');
-const port = require('./util//port');
+const argv = require('./utils/argv');
+const port = require('./utils/port');
 const setup = require('./middlewares/frontendMiddleware');
 const addApiMiddlewares = require('./middlewares/addApiMiddlewares');
 
