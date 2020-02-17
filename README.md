@@ -3,7 +3,7 @@
 
 ## Quick Start
 
-1. git clone <https://github.com/sandcforge/myfancyapp-webserver.git>
+1. git clone <https://github.com/touchberry/MyFancyApp.git>
 2. Run `npm i --save`
 3. Run `npm run dev` to see the development app at <http://localhost:8080>.
 4. Run `npm run prod` to see the production app at <http://localhost:8080>.
@@ -29,6 +29,8 @@ Username **MUST** be a valid email address, which could be used for password res
 
 After signin, JWT is attached to the http request authenticaiton header to access authorized pages, like the user profile page or the app editing pages.
 
+The invalid JWT will redirect the page to user signin page.
+
 ### User Signin JWT Payload Format
 
 ```json
@@ -41,3 +43,8 @@ exp: expiration timestamp
 
 Each user would have a profile once an account is signed up. The profile is physically stored in one table of mysql db, and only part of the profile could be retrieved on front end.
 
+```json
+username: required, string, email format
+password: required, string, harshed raw password
+createAt: required, timestamp, the time when the user account is created.
+```
